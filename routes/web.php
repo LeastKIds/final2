@@ -36,11 +36,16 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])->
     prefix('vocabulary') -> group(function () {
         Route::get('/', [MainPageController::class, 'index_my']);
+        Route::get('/create', [MainPageController::class, 'voca_create']);
     });
 
+
+
+// api 서버
 Route::middleware(['auth:sanctum', 'verified'])->
     prefix('api') -> group(function () {
         Route::prefix('vocabulary') -> group(function () {
             Route::get('/', [VocaController::class, 'index_my']);
+            Route::post('/' , [VocaController::class, 'store']);
         });
     });

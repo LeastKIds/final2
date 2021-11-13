@@ -5,7 +5,7 @@
         </template>
 
         <template #description>
-            <p class="text-white">Permanently delete your account.</p>
+            <p class="text-white mr-48 xl:mr-60">Permanently delete your account.</p>
         </template>
 
         <template #content>

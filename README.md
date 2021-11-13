@@ -9,3 +9,12 @@ https://tailwindcomponents.com/component/events-timeline
 로그인, 회원가입
 https://tailwindcomponents.com/component/feedbackreview-section
 
+검색 창
+
+https://tailwindcomponents.com/component/search-input-4
+
+페이지네이션
+
+https://tailwindcomponents.com/component/simple-pagination
+
+

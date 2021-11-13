@@ -16,4 +16,8 @@ class MainPageController extends Controller
     public function index_my() {
         return Inertia::render('Main/MyVoca');
     }
+
+    public function voca_create() {
+
+    }
 }

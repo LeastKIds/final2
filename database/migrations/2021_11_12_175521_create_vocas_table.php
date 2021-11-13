@@ -16,11 +16,11 @@ class CreateVocasTable extends Migration
         Schema::create('vocas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('title');
+            $table->string('message') -> nullable();
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');
-            $table->foreignId('word_id');
         });
     }
 

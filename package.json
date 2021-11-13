@@ -24,5 +24,11 @@
         "tailwindcss": "^2.0.1",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
+    },
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "v-pagination": "^0.1.4",
+        "vue-pagination-2": "^3.0.91",
+        "vuejs-paginate": "^2.1.0"
     }
 }
