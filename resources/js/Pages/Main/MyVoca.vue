@@ -1,66 +1,182 @@
 <template>
     <layout></layout>
     <section>
-<!--        <div class="bg-black text-white py-8 h-screen" id="backgroundS">-->
-<!--            <div class="container h-screen mx-auto flex flex-col items-start border-double border-4 border-light-blue-500 p-5-->
-<!--            md:flex-row my-12 md:my-24">-->
-
-
-
-<!--&lt;!&ndash;                <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div id="whoobe-1yakq" class="w-60 xs:w-80 bg-white text-base  rounded-lg shadow m-auto -brown-400 border border-t-8 border-b-8 border-gray-700 m-10 flex flex-col">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div id="whoobe-pa28x" class="p-4 flex flex-col text-center ">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <h3 type="element" class="text-4xl text-black mt-5 font-black" id="whoobe-ozjao">내 단어장</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <search></search>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <List></List>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <button type="button" value="button" class="hover:text-white hover:bg-green-400&ndash;&gt;-->
-<!--&lt;!&ndash;                            bg-gray-800 text-gray-400 m-auto my-4 px-6 py-2 text-lg&ndash;&gt;-->
-<!--&lt;!&ndash;                            rounded shadow-px-4 border-0" id="whoobe-wkfvm" @click="open_modal">단어장 작성</button>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="ml-16">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <pagination :voca="voca"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-
-<!--                <div class="grid grid-colsl-1 gap-1">-->
-<!--                    <div class="grid grid-cols-2 gap-2">-->
-<!--                        <search></search>-->
-<!--                        <pagination :voca="voca"></pagination>-->
-<!--                    </div>-->
-
-<!--                    <div class="grid grid-cols-2 gap-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">-->
-<!--                        <div class=" flex  flex-col  md:flex-row justify-center-->
-<!--                    flex-wrap gap-2 mt-5  mr-5 ml-5 mb-5" v-for="(v, index) in voca.data" :key="index">-->
-<!--                            <voca-list :voca="v"></voca-list>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-
-
-
-
-
-<!--            </div>-->
-<!--        </div>-->
 
         <div class="w-full bg-black">
             <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
                 <div class="text-center pb-12">
-<!--                    <h2 style="visibility: hidden;" class="text-base font-bold text-indigo-600 hide">-->
-<!--                        We have the best equipment in the market-->
-<!--                    </h2>-->
-<!--                    <h1 style="visibility: hidden;" class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white hide">-->
-<!--                        Check our awesome team memwhite-->
-<!--                    </h1>-->
                 </div>
                 <div class="">
                     <search></search>
-                        <pagination :voca="voca"></pagination>
+                    <div
+                        v-if="button_set === 1"
+                        class="flex relative mx-auto max-w-md w-auto mt-2 mb-5">
+
+                                <button class="px-4 py-2 rounded-md text-sm
+                                    font-medium border focus:outline-none focus:ring
+                                    transition text-yellow-600 border-yellow-600 hover:text-white
+                                    hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300"
+                                        @click="select(voca.prev_page_url)"
+                                        v-if="voca.prev_page_url"  type="submit">이전</button>
+
+                        <div v-for="i in list" :key="i" class="inline-flex">
+
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring bg-yellow-50
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-if="i === voca.current_page"
+                                    type="submit" @click="pageSelect(i)">{{i}}</button>
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-else @click="pageSelect(i)"
+                                    type="submit" >{{i}}</button>
+
+                        </div >
+
+
+                        <div class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                v-if="voca.current_page + 10 <= voca.last_page"
+                                 >...</div>
+
+
+                        <button class="px-4 py-2 rounded-md text-sm font-medium border
+                            focus:outline-none focus:ring transition text-yellow-600
+                            border-yellow-600 hover:text-white hover:bg-yellow-600
+                            active:bg-yellow-700 focus:ring-yellow-300 ml-1"
+                                @click="select(voca.next_page_url)"
+                                v-if="voca.next_page_url" type="submit">다음</button>
+
+                    </div>
+
+
+                    <div
+                        v-if="button_set === 2"
+                        class="flex relative mx-auto max-w-md w-auto mt-2 mb-5">
+
+                        <button class="px-4 py-2 rounded-md text-sm
+                                    font-medium border focus:outline-none focus:ring
+                                    transition text-yellow-600 border-yellow-600 hover:text-white
+                                    hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300"
+                                @click="select(voca.prev_page_url)"
+                                v-if="voca.prev_page_url"  type="submit">이전</button>
+
+                        <div class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                        >...</div>
+
+
+                        <div v-for="i in list" :key="i" class="inline-flex">
+
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring bg-yellow-50
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-if="i === voca.current_page"
+                                    type="submit" @click="pageSelect(i)">{{i}}</button>
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-else @click="pageSelect(i)"
+                                    type="submit" >{{i}}</button>
+
+                        </div >
+
+
+
+
+
+                        <button class="px-4 py-2 rounded-md text-sm font-medium border
+                            focus:outline-none focus:ring transition text-yellow-600
+                            border-yellow-600 hover:text-white hover:bg-yellow-600
+                            active:bg-yellow-700 focus:ring-yellow-300 ml-1"
+                                @click="select(voca.next_page_url)"
+                                v-if="voca.next_page_url" type="submit">다음</button>
+
+                    </div>
+
+
+                    <div
+                        v-if="button_set === 3"
+                        class="flex relative mx-auto max-w-md w-auto mt-2 mb-5">
+
+                        <button class="px-4 py-2 rounded-md text-sm
+                                    font-medium border focus:outline-none focus:ring
+                                    transition text-yellow-600 border-yellow-600 hover:text-white
+                                    hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300"
+                                @click="select(voca.prev_page_url)"
+                                v-if="voca.prev_page_url"  type="submit">이전</button>
+
+                        <div class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+
+                        >...</div>
+
+
+                        <div v-for="i in list" :key="i" class="inline-flex">
+
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring bg-yellow-50
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-if="i === voca.current_page"
+                                    type="submit" @click="pageSelect(i)">{{i}}</button>
+
+                            <button class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+                                    v-else @click="pageSelect(i)"
+                                    type="submit" >{{i}}</button>
+
+                        </div >
+
+
+                        <div class="px-4 py-2 rounded-md text-sm
+                             font-medium border focus:outline-none focus:ring
+                             transition text-yellow-600 border-yellow-600 hover:text-white
+                             hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
+
+                        >...</div>
+
+
+                        <button class="px-4 py-2 rounded-md text-sm font-medium border
+                            focus:outline-none focus:ring transition text-yellow-600
+                            border-yellow-600 hover:text-white hover:bg-yellow-600
+                            active:bg-yellow-700 focus:ring-yellow-300 ml-1"
+                                @click="select(voca.next_page_url)"
+                                v-if="voca.next_page_url" type="submit">다음</button>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                         <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500
@@ -68,26 +184,14 @@
                     focus:border-4 focus:border-green-300 flex relative
                     mx-auto max-w-md w-auto mt-2 mb-4" @click="open_modal">단어장 생성</button>
 
-
-
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!--                    <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">-->
-<!--                        <div class="mb-8">-->
-<!--                            <img class="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo">-->
-<!--                        </div>-->
-<!--                        <div class="text-center">-->
-<!--                            <p class="text-xl text-white font-bold mb-2">Dany Bailey</p>-->
-<!--                            <p class="text-base text-gray-400 font-normal">Software Engineer</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
 
 
                     <div v-for="v in voca.data" :key="v.id">
                         <voca-list :voca="v"></voca-list>
                     </div>
-<!--                    <voca-list :voca="voca"></voca-list>-->
                 </div>
             </section>
         </div>
@@ -155,6 +259,7 @@ import List from './../Button/List.vue'
 import JetDialogModal from '@/Jetstream/DialogModal.vue'
 import VocaList from './../Button/VocaList.vue'
 import Pagination from './../Button/Pagination.vue'
+import SlidingPagination from 'vue-sliding-pagination'
 // import VPagination from ''
 // import Paginate from 'vuejs-paginate'
 // import Pagination from 'vue-pagination-2';
@@ -171,6 +276,7 @@ export default {
         JetDialogModal,
         VocaList,
         Pagination,
+        SlidingPagination,
     },
     data() {
         return {
@@ -185,14 +291,18 @@ export default {
                 message : '',
             },
             data : '',
+            list : [],
+            button_set : 1,
+            currentPage: 1,
+            totalPages: 10
         }
     },
     mounted() {
         axios.get('/api/vocabulary')
             .then(response => {
                 this.voca = response.data
-                this.data = this.voca
                 console.log(this.voca)
+                this.page(this.voca)
 
             }).catch(err => {
                 console.log(err)
@@ -226,8 +336,55 @@ export default {
                     console.log(err)
             })
         },
-        myCallback(pageNum) {
-            console.log(pageNum)
+        select(url) {
+            axios.get(url)
+                .then(response => {
+                    this.voca=response.data
+                    console.log(response)
+                    this.page(this.voca)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        pageSelect(page) {
+            console.log(page)
+            if(this.button_set ===2) {
+                page -= 1
+            }
+            axios.get(this.voca.links[page].url)
+                .then(response => {
+                    this.voca=response.data
+                    console.log(response)
+                    this.page(this.voca)
+                }).catch(err => {
+                console.log(err)
+            })
+
+        },
+        page(v) {
+            console.log('t)')
+            this.list=[]
+            if(v.current_page < 5) {
+                this.button_set = 1
+                console.log(1)
+                for (let i = 1; i <= 8; i++) {
+                    this.list.push(i)
+                }
+            }else if(v.current_page >= v.last_page - 4) {
+                this.button_set = 2
+                console.log(2)
+                for (let i = v.last_page - 7; i<= v.last_page; i++){
+                    this.list.push(i)
+                }
+                console.log(this.list)
+            }
+            else {
+                this.button_set = 3
+                console.log(3)
+                for (let i = v.current_page -3; i <= v.current_page + 3; i ++) {
+                    this.list.push(i)
+                }
+            }
         }
     }
 }

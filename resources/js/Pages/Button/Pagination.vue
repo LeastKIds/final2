@@ -14,7 +14,7 @@
          font-medium border focus:outline-none focus:ring
          transition text-yellow-600 border-yellow-600 hover:text-white
          hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
-
+            v-for="i in 4" :key="i"
                             type="submit" >{{v}}</button>
 
             </div>
@@ -44,6 +44,7 @@ export default {
     },
     mounted() {
         this.currentPage = this.voca.current_page
+        console.log('t')
         console.log(this.voca.last_page)
     },
     methods : {
