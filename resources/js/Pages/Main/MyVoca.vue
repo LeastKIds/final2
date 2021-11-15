@@ -245,8 +245,6 @@
 
 
         </jet-dialog-modal>
-
-
     </section>
 </template>
 
@@ -259,10 +257,6 @@ import List from './../Button/List.vue'
 import JetDialogModal from '@/Jetstream/DialogModal.vue'
 import VocaList from './../Button/VocaList.vue'
 import Pagination from './../Button/Pagination.vue'
-// import SlidingPagination from 'vue-sliding-pagination'
-// import VPagination from ''
-// import Paginate from 'vuejs-paginate'
-// import Pagination from 'vue-pagination-2';
 
 import axios from 'axios'
 export default {
@@ -346,9 +340,6 @@ export default {
         },
         pageSelect(page) {
             console.log(page)
-            if(this.button_set ===2) {
-                page -= 1
-            }
             axios.get(this.voca.links[page].url)
                 .then(response => {
                     this.voca=response.data
@@ -375,7 +366,7 @@ export default {
             }else if(v.current_page >= v.last_page - 4) {
                 this.button_set = 2
                 console.log(2)
-                for (let i = v.last_page - 7; i<= v.last_page; i++){
+                for (let i = v.last_page - 6; i<= v.last_page; i++){
                     this.list.push(i)
                 }
                 console.log(this.list)

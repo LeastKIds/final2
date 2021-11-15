@@ -20923,10 +20923,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import SlidingPagination from 'vue-sliding-pagination'
-// import VPagination from ''
-// import Paginate from 'vuejs-paginate'
-// import Pagination from 'vue-pagination-2';
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21014,11 +21010,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       console.log(page);
-
-      if (this.button_set === 2) {
-        page -= 1;
-      }
-
       axios__WEBPACK_IMPORTED_MODULE_8___default().get(this.voca.links[page].url).then(function (response) {
         _this3.voca = response.data;
         console.log(response);
@@ -21044,7 +21035,7 @@ __webpack_require__.r(__webpack_exports__);
         this.button_set = 2;
         console.log(2);
 
-        for (var _i = v.last_page - 7; _i <= v.last_page; _i++) {
+        for (var _i = v.last_page - 6; _i <= v.last_page; _i++) {
           this.list.push(_i);
         }
 
