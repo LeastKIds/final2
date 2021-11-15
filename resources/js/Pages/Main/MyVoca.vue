@@ -6,10 +6,10 @@
             <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
                 <div class="text-center pb-12">
                 </div>
-                <div class="">
+                <div style="text-align:center;" class="flex flex-col items-center justify-center">
                     <search></search>
                     <div
-                        v-if="button_set === 1"
+                        v-if="button_set === 1 && this.voca.last_page !==1"
                         class="flex relative mx-auto max-w-md w-auto mt-2 mb-5">
 
                                 <button class="px-4 py-2 rounded-md text-sm
@@ -190,7 +190,7 @@
 
 
                     <div v-for="v in voca.data" :key="v.id">
-                        <voca-list :voca="v"></voca-list>
+                        <voca-list :voca="v" @read="read_voca"></voca-list>
                     </div>
                 </div>
             </section>
@@ -208,7 +208,7 @@
                     text-xs font-bold mb-2" for="full-name">단어장 제목</label>
                     <span class="flex items-center font-medium tracking-wide text-red-500 text-xs
                 mt-1 ml-1" v-if="error.title">{{error.title}}</span>
-                    <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300
+                    <input type="text" class="bg-gray-300 border-0 px-3 py-3 placeholder-blueGray-300
                     text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none
                     focus:ring w-full ease-linear transition-all duration-150"
                            placeholder="단어장 제목" v-model="create_voca.title">
@@ -218,7 +218,7 @@
                 <div class="relative w-full mb-3">
                     <label class="block uppercase text-blueGray-600
                     text-xs font-bold mb-2" for="message">설명</label>
-                    <textarea rows="4" cols="80" class="border-0 px-3 py-3 placeholder-blueGray-300
+                    <textarea rows="4" cols="80" class="bg-gray-300 border-0 px-3 py-3 placeholder-blueGray-300
                     text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none
                     focus:ring w-full" placeholder="설명 써줘요" v-model="create_voca.message"></textarea>
                 </div>
@@ -291,15 +291,7 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/vocabulary')
-            .then(response => {
-                this.voca = response.data
-                console.log(this.voca)
-                this.page(this.voca)
-
-            }).catch(err => {
-                console.log(err)
-        })
+        this.read_voca()
     },
     methods : {
         open_modal() {
@@ -323,7 +315,15 @@ export default {
             }
             axios.post('/api/vocabulary', data)
                 .then(response => {
-                    console.log(response)
+                    if(response.data.success === 1) {
+                        console.log(response.data)
+
+                        const url = '/vocabulary/' + response.data.voca.id
+                        location.href= url
+                    }else {
+                        alert('오류 발생! 잠시 후, 다시 시도해 주세요.')
+                    }
+
                 }).catch(err => {
                     console.log(err)
             })
@@ -331,9 +331,14 @@ export default {
         select(url) {
             axios.get(url)
                 .then(response => {
-                    this.voca=response.data
-                    console.log(response)
-                    this.page(this.voca)
+                    if(response.data.success === 1) {
+                        this.voca=response.data
+                        console.log(response)
+                        this.page(this.voca)
+                    }else {
+                        alert('오류 발생! 잠시 후, 다시 시도해 주세요.')
+                    }
+
                 }).catch(err => {
                 console.log(err)
             })
@@ -342,9 +347,11 @@ export default {
             console.log(page)
             axios.get(this.voca.links[page].url)
                 .then(response => {
-                    this.voca=response.data
                     console.log(response)
-                    this.page(this.voca)
+                        this.voca=response.data
+                        // console.log(response)
+                        this.page(this.voca)
+
                 }).catch(err => {
                 console.log(err)
             })
@@ -366,7 +373,7 @@ export default {
             }else if(v.current_page >= v.last_page - 4) {
                 this.button_set = 2
                 console.log(2)
-                for (let i = v.last_page - 6; i<= v.last_page; i++){
+                for (let i = v.last_page - 5; i<= v.last_page; i++){
                     this.list.push(i)
                 }
                 console.log(this.list)
@@ -378,7 +385,19 @@ export default {
                     this.list.push(i)
                 }
             }
-        }
+        },
+        read_voca() {
+            console.log('read_voca')
+            axios.get('/api/vocabulary')
+                .then(response => {
+                    this.voca = response.data
+                    console.log(this.voca)
+                    this.page(this.voca)
+
+                }).catch(err => {
+                console.log(err)
+            })
+        },
     }
 }
 </script>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\VocaController;
+use App\Http\Controllers\WordController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,7 +37,7 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])->
     prefix('vocabulary') -> group(function () {
         Route::get('/', [MainPageController::class, 'index_my']);
-        Route::get('/create', [MainPageController::class, 'voca_create']);
+        Route::get('/{id}', [MainPageController::class, 'index_words']);
     });
 
 
@@ -47,5 +48,13 @@ Route::middleware(['auth:sanctum', 'verified'])->
         Route::prefix('vocabulary') -> group(function () {
             Route::get('/', [VocaController::class, 'index_my']);
             Route::post('/' , [VocaController::class, 'store']);
+            Route::patch('/{id}', [VocaController::class, 'update']);
+            Route::delete('/{id}', [VocaController::class, 'destroy']);
+        });
+
+        Route::prefix('words') -> group(function () {
+           Route::post('/{voca_id}',[WordController::class, 'store']);
+           Route::get('/{voca_id}', [WordController::class,'index']);
+           Route::delete('/{word_id}', [WordController::class,'destroy']);
         });
     });

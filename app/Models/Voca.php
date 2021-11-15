@@ -12,4 +12,8 @@ class Voca extends Model
     public function user() {
         return $this -> belongsTo(User::class);
     }
+
+    public function words() {
+        return $this -> hasMany(Word::class);
+    }
 }

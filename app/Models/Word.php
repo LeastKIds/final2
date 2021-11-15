@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Word extends Model
 {
     use HasFactory;
+
+    public function user() {
+        return $this -> belongsTo(User::class);
+    }
+
+    public function voca() {
+        return $this -> belongsTo(Word::class);
+    }
 }

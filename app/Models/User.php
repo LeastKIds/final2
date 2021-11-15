@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function vocas() {
         return $this -> hasMany(Voca::class);
     }
+
+    public function words() {
+        return $this -> hasMany(Word::class);
+    }
 }

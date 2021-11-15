@@ -17,8 +17,8 @@ class CreateWordsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('korean');
-            $table->string('kannzi');
-            $table->string('hiragana');
+            $table->string('kannzi') -> nullable();
+            $table->string('hiragana') -> nullable();
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');

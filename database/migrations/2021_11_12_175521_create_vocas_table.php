@@ -21,6 +21,7 @@ class CreateVocasTable extends Migration
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');
+            $table->string('open') -> default(0);
         });
     }
 
