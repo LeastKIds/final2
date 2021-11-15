@@ -43,7 +43,7 @@
                              font-medium border focus:outline-none focus:ring
                              transition text-yellow-600 border-yellow-600 hover:text-white
                              hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-1"
-                                v-if="voca.current_page + 10 <= voca.last_page"
+                                v-if="voca.current_page + 7 <= voca.last_page"
                                  >...</div>
 
 
@@ -259,7 +259,7 @@ import List from './../Button/List.vue'
 import JetDialogModal from '@/Jetstream/DialogModal.vue'
 import VocaList from './../Button/VocaList.vue'
 import Pagination from './../Button/Pagination.vue'
-import SlidingPagination from 'vue-sliding-pagination'
+// import SlidingPagination from 'vue-sliding-pagination'
 // import VPagination from ''
 // import Paginate from 'vuejs-paginate'
 // import Pagination from 'vue-pagination-2';
@@ -276,7 +276,6 @@ export default {
         JetDialogModal,
         VocaList,
         Pagination,
-        SlidingPagination,
     },
     data() {
         return {
@@ -306,7 +305,6 @@ export default {
 
             }).catch(err => {
                 console.log(err)
-
         })
     },
     methods : {
@@ -362,12 +360,16 @@ export default {
 
         },
         page(v) {
-            console.log('t)')
             this.list=[]
             if(v.current_page < 5) {
                 this.button_set = 1
                 console.log(1)
-                for (let i = 1; i <= 8; i++) {
+                let page = 0
+                if(v.last_page <= 7)
+                    page = v.last_page
+                else
+                    page = 7
+                for (let i = 1; i <= page; i++) {
                     this.list.push(i)
                 }
             }else if(v.current_page >= v.last_page - 4) {
@@ -381,7 +383,7 @@ export default {
             else {
                 this.button_set = 3
                 console.log(3)
-                for (let i = v.current_page -3; i <= v.current_page + 3; i ++) {
+                for (let i = v.current_page -2; i <= v.current_page + 2; i ++) {
                     this.list.push(i)
                 }
             }

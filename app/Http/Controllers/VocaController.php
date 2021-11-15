@@ -9,6 +9,7 @@ class VocaController extends Controller
 {
     //
     public function index_my(){
+
         $id = auth() -> user() -> id;
 
         $voca = Voca::where('user_id', $id)-> with('user') -> latest() -> paginate(12);

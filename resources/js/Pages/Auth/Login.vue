@@ -89,10 +89,10 @@
                                                         class="bg-yellow-300 text-black text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                                                         type="submit" style="transition: all 0.15s ease 0s;" @click="submit">로그인
                                                 </button>
-                                                <Link
+                                                <a
                                                     class="bg-blue-300 text-black text-center mx-auto active:bg-blue-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none ml-3 mr-1 mb-1"
                                                     type='button' style="transition: all 0.15s ease 0s;" :href="route('register')">회원가입
-                                                </Link>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
