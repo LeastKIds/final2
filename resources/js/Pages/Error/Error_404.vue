@@ -1,5 +1,8 @@
 <template>
+    <layout></layout>
     <section>
+
+
 
         <div class="bg-black text-white">
             <div class="flex h-screen">
@@ -191,8 +194,10 @@
 </template>
 
 <script>
+import Layout from './../Layouts/Layout.vue';
 export default {
-    name: "Error_404"
+    name: "Error_404",
+    components : { Layout, }
 }
 </script>
 

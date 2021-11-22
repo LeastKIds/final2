@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\VocaController;
 use App\Http\Controllers\WordController;
 use Illuminate\Foundation\Application;
@@ -37,24 +38,45 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])->
     prefix('vocabulary') -> group(function () {
         Route::get('/', [MainPageController::class, 'index_my']);
+
         Route::get('/{id}', [MainPageController::class, 'index_words']);
+
     });
 
+Route::middleware(['auth:sanctum', 'verified'])->
+    prefix('other') -> group(function () {
+        Route::get('/', [MainPageController::class, 'index_other']);
+        Route::get('/words/{voca_id}', [MainPageController::class, 'index_other_words']);
+});
 
 
 // api 서버
 Route::middleware(['auth:sanctum', 'verified'])->
     prefix('api') -> group(function () {
         Route::prefix('vocabulary') -> group(function () {
+            Route::get('/{search}', [VocaController::class, 'index_my_search']);
             Route::get('/', [VocaController::class, 'index_my']);
             Route::post('/' , [VocaController::class, 'store']);
             Route::patch('/{id}', [VocaController::class, 'update']);
             Route::delete('/{id}', [VocaController::class, 'destroy']);
+            Route::patch('/open/{voca_id}', [VocaController::class, 'open']);
+            Route::patch('/close/{voca_id}', [VocaController::class, 'close']);
+
         });
 
         Route::prefix('words') -> group(function () {
            Route::post('/{voca_id}',[WordController::class, 'store']);
            Route::get('/{voca_id}', [WordController::class,'index']);
            Route::delete('/{word_id}', [WordController::class,'destroy']);
+           Route::patch('/{word_id}', [WordController::class,'update']);
+        });
+
+        Route::prefix('other') -> group(function () {
+            Route::get('/', [OtherController::class, 'index']);
+            Route::get('/words/search/{search}', [OtherController::class, 'search']);
+
+
+            Route::get('/words/{voca_id}', [OtherController::class, 'index_words']);
+
         });
     });

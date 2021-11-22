@@ -1,4 +1,6 @@
 <template>
+
+    <layout></layout>
     <div class="bg-black text-white">
         <div class="flex h-screen">
             <div class="m-auto text-center">
@@ -102,8 +104,10 @@
 </template>
 
 <script>
+import Layout from './../Layouts/Layout.vue';
 export default {
-    name: "Error_BadConnection"
+    name: "Error_BadConnection",
+    components : {Layout}
 }
 </script>
 

@@ -32,4 +32,23 @@ class MainPageController extends Controller
 
         return Inertia::render('Main/CreateWords', ['voca' => $voca, 'words' => $words]);
     }
+
+    public function index_other() {
+
+        return Inertia::render('Main/OtherVoca');
+    }
+
+    public function index_other_words($voca_id) {
+        $voca = Voca::find($voca_id);
+        if($voca -> open == 0)
+            return Inertia::render('Error/Error_BadConnection');
+
+        $words = Word::where('voca_id', $voca_id) ->get();
+
+        $id = auth() -> user() -> id;
+        if($voca -> user_id == $id)
+            return Inertia::render('Main/CreateWords',['voca' => $voca, 'words' => $words]);
+        else
+            return Inertia::render('Main/OtherVocaView', ['voca' => $voca, 'words' => $words]);
+    }
 }

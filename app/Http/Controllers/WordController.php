@@ -59,4 +59,30 @@ class WordController extends Controller
 
         return ['success' => 1, 'message' =>'삭제 성공'];
     }
+
+    public function update(Request $request, $word_id) {
+
+        $id = auth() -> user() -> id;
+
+        $word = Word::find($word_id);
+
+
+
+        if($word -> user_id != $id)
+            return Inertia::render('Error/Error_BadConnection');
+
+
+        if(!$request -> kannzi && !$request -> hiragana)
+            return ['success' => 40, 'message' => '한자랑 히라가나 둘 중 하나는 꼭 있어야 해요'];
+        if(!$request -> korean)
+            return ['success' => 41, 'message' => '한글이 꼭 있어야 해요!'];
+        if($request -> kannzi)
+            $word -> kannzi = $request -> kannzi;
+        if($request -> hiragana)
+            $word -> hiragana = $request -> hiragana;
+        $word -> korean = $request -> korean;
+        $word -> save();
+
+        return ['success' => 1, 'message' =>'단어 업데이트 성공', 'word' => $word];
+    }
 }

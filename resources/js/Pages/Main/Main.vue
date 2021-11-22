@@ -59,7 +59,7 @@
                                     </p>
                                 </div>
                             </Link>
-                            <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                            <Link class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline" href="/other">
                                 <div class="order-1 w-5/12"></div>
                                 <div class="order-1 w-5/12 px-1 py-4 text-right">
                                     <p class="mb-3 text-base text-yellow-300">검색</p>
@@ -68,7 +68,7 @@
                                         힘들게 단어장 만들지 말고, 남의 단어장을 베껴오세요!
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
 
                             <div class="mb-8 flex justify-between items-center w-full right-timeline">
                                 <div class="order-1 w-5/12"></div>

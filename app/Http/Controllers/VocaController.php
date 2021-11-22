@@ -10,13 +10,21 @@ class VocaController extends Controller
 {
     //
     public function index_my(){
-
         $id = auth() -> user() -> id;
 
         $voca = Voca::where('user_id', $id)-> with('user') -> latest() -> paginate(12);
 
         return $voca;
 
+    }
+
+    public function index_my_search($search) {
+        $id = auth() -> user() -> id;
+
+        $voca = Voca::where('user_id', $id)-> with('user')
+            -> where('title', 'like', '%'.$search.'%') -> latest() -> paginate(12);
+
+        return $voca;
     }
 
     public function store(Request $request) {
@@ -68,5 +76,29 @@ class VocaController extends Controller
         $voca -> delete();
 
         return ['success' => 1, 'message' =>'삭제 성공'];
+    }
+
+    public function open($voca_id) {
+        $voca = Voca::find($voca_id);
+        $user_id = auth() -> user() -> id;
+        if($voca -> user_id != $user_id)
+            return Inertia::render('Error/Error_BadConnection');
+
+        $voca -> open = 1;
+        $voca -> save();
+
+        return ['success' => 1, 'message' =>'공개로 바뀜', 'voca' => $voca];
+    }
+
+    public function close($voca_id) {
+        $voca = Voca::find($voca_id);
+        $user_id = auth() -> user() -> id;
+        if($voca -> user_id != $user_id)
+            return Inertia::render('Error/Error_BadConnection');
+
+        $voca -> open = 0;
+        $voca -> save();
+
+        return ['success' => 1, 'message' =>'비공개로 바뀜'];
     }
 }

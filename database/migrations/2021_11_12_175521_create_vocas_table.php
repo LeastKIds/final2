@@ -22,6 +22,7 @@ class CreateVocasTable extends Migration
                 ->constrained()
                 ->onDelete('cascade');
             $table->string('open') -> default(0);
+            $table->string('public_voca') -> default(0);
         });
     }
 

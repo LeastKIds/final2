@@ -40,17 +40,35 @@
 
 
         </div>
-        <div style="text-align:center;" v-for="word in words_x" :key="word.id">
+        <div style="text-align:center;" v-for="(word,index) in words_x" :key="word.id">
             <input type="text" placeholder="한자" class="text-center mb-2 bg-gray-100 p-2
             rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
-            focus:border-indigo-600 m-1" readonly :value="word.kannzi"/>
+            focus:border-indigo-600 m-1" readonly :value="word.kannzi" v-if="edit_button[index] === 1"/>
             <input type="text" placeholder="히라가나" class="text-center mb-2 bg-gray-100
             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
-            focus:border-indigo-600 m-1" readonly :value="word.hiragana"/>
+            focus:border-indigo-600 m-1" readonly :value="word.hiragana" v-if="edit_button[index] === 1"/>
             <input type="text" placeholder="한글" class="text-center mb-2 bg-gray-100
              p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
-              focus:border-indigo-600 m-1" readonly :value="word.korean"/>
-            <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-yellow-500 text-yellow-500 text-lg rounded-lg hover:bg-yellow-500 hover:text-gray-100 focus:border-4 focus:border-yellow-300　m-1">수정</button>
+              focus:border-indigo-600 m-1" readonly :value="word.korean" v-if="edit_button[index] === 1"/>
+
+            <input type="text" placeholder="한자" class="text-center mb-2 bg-gray-100 p-2
+            rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            focus:border-indigo-600 m-1" v-model="word.kannzi" v-if="edit_button[index] === 0"/>
+            <input type="text" placeholder="히라가나" class="text-center mb-2 bg-gray-100
+            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            focus:border-indigo-600 m-1" v-model="word.hiragana" v-if="edit_button[index] === 0"/>
+            <input type="text" placeholder="한글" class="text-center mb-2 bg-gray-100
+             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+              focus:border-indigo-600 m-1" v-model="word.korean" v-if="edit_button[index] === 0"/>
+            <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-yellow-500
+            text-yellow-500 text-lg rounded-lg hover:bg-yellow-500 hover:text-gray-100
+            focus:border-4 focus:border-yellow-300　m-1"
+                    v-if="edit_button[index] === 1" @click="edit_word(index)">수정</button>
+
+            <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100
+            focus:border-4 focus:border-green-300 m-1" @click="update_word(word.id, word.kannzi, word.hiragana, word.korean)"
+                    v-if="edit_button[index] === 0">저장</button>
+
             <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-red-500
              text-red-500 text-lg rounded-lg hover:bg-red-500 hover:text-gray-100
              focus:border-4 focus:border-red-300 m-1" @click="delete_word(word.id)">삭제</button>
@@ -72,6 +90,18 @@
              <span class="flex items-center font-medium tracking-wide text-red-500 text-xl
                 mt-1 ml-1" v-if="error.message">{{error.message}}</span>
         </div>
+
+
+        <div class="w-full  flex justify-center items-center">
+            <button
+                data-modal-toggle="example2"
+                data-modal-action="open"
+                class="bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-8"
+            >
+                게임 시작
+            </button>
+            </div>
+
 
 
 
@@ -116,7 +146,8 @@
         </jet-dialog-modal>
 
     </div>
-
+    <div style="height:100px;">
+    </div>
 </template>
 
 <script>
@@ -149,6 +180,9 @@ export default {
                 hiragana : '',
                 korean : '',
             },
+            edit_button : [],
+            word_error : [],
+            first_page : false,
         }
     },
     mounted () {
@@ -157,6 +191,7 @@ export default {
         this.words_x = this.words
         this.update_voca.title = this.voca_x.title
         this.update_voca.message = this.voca_x.message
+        this.set_edit_button()
     },
     methods : {
         voca_update() {
@@ -235,10 +270,13 @@ export default {
                 hiragana : this.word.hiragana,
                 korean : this.word.korean,
             }
-
+            this.first_page = true
             axios.post('/api/words/'+this.voca_x.id, data)
                 .then(response => {
                     if(response.data.success === 1) {
+                        this.word.kannzi = ''
+                        this.word.hiragana = ''
+                        this.word.korean = ''
                         this.read_words()
                     }else {
                         alert('오류발생! 잠시 후에 다시 시도해 주세요!')
@@ -256,7 +294,7 @@ export default {
                     } else {
                         alert('오류발생! 잠시 후에 다시 시도해 주세요!')
                     }
-                }).catch(error => {
+                }).catch(err => {
                     console.log(err)
             })
         },
@@ -270,7 +308,71 @@ export default {
                     console.log(response)
                     if(response.data.success === 1) {
                         this.words_x = response.data.words
+                        console.log('read_words')
+                        console.log(this.first_page)
+                        if(this.first_page) {
+                            window.scrollTo( 0, document.body.scrollHeight )
+                            this.first_page = false
+                        }
+                        this.set_edit_button()
                     }
+                }).catch(err => {
+                    console.log(err)
+            })
+        },
+        set_edit_button() {
+            console.log('set_edit_button')
+            this.edit_button = []
+            for(let i=0; i<this.words_x.length; i++) {
+                this.edit_button.push(1)
+            }
+            console.log(this.edit_button)
+        },
+        edit_word(i) {
+            console.log(i)
+            this.edit_button[i] = 0
+        },
+        update_word(i, kannzi, hiragana, korean) {
+            let check = true
+            this.word_error[i] = ''
+            if(this.checkKannzi(kannzi) === false && kannzi) {
+                this.word_error[i] += '한자 칸에 한자가 아니에요!'
+                check = false
+            }
+
+
+            if(!kannzi && !hiragana) {
+                if(this.word_error[i])
+                    this.word_error[i] += ' / '
+                this.word_error[i] += '한자, 히라가나 둘 중 하나는 꼭 써야 해요!'
+                check = false
+            }
+
+
+            if(!korean) {
+                if(this.word_error[i])
+                    this.word_error[i] += ' / '
+                this.word_error[i] += '한글은 꼭 적어야 해요!'
+                check = false
+            }
+
+
+
+            if(check === false)
+                return
+            const data = {
+                kannzi : kannzi,
+                hiragana : hiragana,
+                korean : korean,
+            }
+            console.log('test');
+            axios.patch('/api/words/'+i, data)
+                .then(response => {
+                    console.log(response)
+                    if(response.data.success === 1) {
+                        this.read_words()
+                    } else
+                        alert('오류발생! 잠시 후에 다시 시도해 주세요!')
                 }).catch(err => {
                     console.log(err)
             })

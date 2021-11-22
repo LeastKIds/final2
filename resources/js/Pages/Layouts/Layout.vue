@@ -35,7 +35,7 @@
                     </li>
                     <li class="mr-3" >
                         <a class="inline-block hover:text-yellow-300
-                        hover:text-underline py-2 px-4" id="voca" href="#">남 단어장</a>
+                        hover:text-underline py-2 px-4" id="voca" href="/other">남 단어장</a>
                     </li>
                     <li class="mr-3" >
                         <a class="inline-block hover:text-yellow-300
@@ -90,7 +90,7 @@ export default {
 
         const t=window.location.href
         const test = t.split('/')
-
+        console.log(test[3])
         if(test[3] === 'dashboard') {
             document.getElementById('dashboard')
                 .className = 'border-b-0 md:border-b-4 border-yellow-300 ' +
@@ -105,7 +105,7 @@ export default {
                 .className ='border-b-0 md:border-b-4 border-yellow-300 text-yellow-300 ' +
                 'inline-block hover:text-yellow-300 hover:text-underline py-2 px-4'
             console.log(test[3])
-        } else if (test[3] === 'voca') {
+        } else if (test[3] === 'other') {
             document.getElementById('voca')
                 .className ='border-b-0 md:border-b-4 border-yellow-300 text-yellow-300 ' +
                 'inline-block hover:text-yellow-300 hover:text-underline py-2 px-4'

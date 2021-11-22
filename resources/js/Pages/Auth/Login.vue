@@ -65,19 +65,19 @@
                                             <div class="relative w-full mb-3">
                                                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                                        for="email">Email</label><input  name="email" id="email" class="border-0 px-3 py-3 rounded text-sm shadow w-full
-                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400" placeholder=" " v-model="form.email"
+                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400" placeholder=" " v-model="form.email" @keyup.enter="submit"
                                                                                         style="transition: all 0.15s ease 0s;" />
                                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1" v-if="error.email">{{error.email}}</span>
                                             </div>
                                             <div class="relative w-full mb-3">
                                                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                                 >Password</label><input type="password" name="password"  class="border-0 px-3 py-3 rounded text-sm shadow w-full
-                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400 h-12" placeholder=" " v-model="form.password"
+                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400 h-12" placeholder=" " v-model="form.password" @keyup.enter="submit"
                                                                         style="transition: all 0.15s ease 0s;" v-if="show === false"/>
                                                 <button class="absolute top-5.5 right-0 rounded-l-none btn bg-gray-800 w-14 h-12" v-if="show === false" @click="toggle" >Show</button>
 
                                                 <input name="password"  class="border-0 px-3 py-3 rounded text-sm shadow w-full
-                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400 h-12" placeholder=" " v-model="form.password"
+                    bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400 h-12" placeholder=" " v-model="form.password" @keyup.enter="submit"
                                                        style="transition: all 0.15s ease 0s;" v-if="show === true"/>
                                                 <button class="absolute top-5.5 right-0 rounded-l-none btn bg-gray-800 w-14 h-12" v-if="show === true" @click="toggle" >Hide</button>
 

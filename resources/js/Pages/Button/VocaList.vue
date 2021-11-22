@@ -4,8 +4,42 @@
             <img class="object-center object-cover rounded-full h-20 w-20" :src="voca.user.profile_photo_url" alt="photo">
         </div>
         <div class="text-center">
-            <p class="text-xl text-white font-bold mb-2  w-20 truncate">{{voca.title}}</p>
-            <p class="text-base text-gray-400 font-normal w-20 truncate">{{voca.message}}</p>
+            <p class="text-xl text-white font-bold mb-2  w-48 truncate">{{voca.title}}</p>
+            <p class="text-base text-gray-400 font-normal w-48 truncate">{{voca.message}}</p>
+
+            <div class="flex items-center justify-center w-full mt-5 mb-5">
+
+                <div class="flex items-center justify-center w-full mb-12">
+
+                    <div class="m-3" v-if="open_check === false">
+                        <button class="bg-white text-gray-800
+                        font-bold rounded border-b-2 border-yellow-500
+                        hover:border-yellow-600 hover:bg-yellow-500 hover:text-white
+                        shadow-md py-2 px-6 inline-flex items-center" @click="open_voca">
+                            <span class="mr-2">비공개</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="m-3" v-if="open_check === true">
+                        <button class="bg-white text-gray-800 font-bold
+                        rounded border-b-2 border-green-500 hover:border-green-600
+                         hover:bg-green-500 hover:text-white shadow-md py-2 px-6
+                         inline-flex items-center" @click="close_voca">
+                            <span class="mr-2">공개</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
             <button class="px-4 py-2 rounded-md text-sm font-medium border
             focus:outline-none focus:ring transition text-blue-600 border-blue-600
             hover:text-white hover:bg-blue-600 active:bg-blue-700 focus:ring-blue-300 m-3"
@@ -15,6 +49,7 @@
             hover:text-white hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300 m-3"
                     type="submit" @click="open_modal">삭제</button>
         </div>
+
 
 
         <jet-dialog-modal :show="openModal" @close="openModal = false">
@@ -58,15 +93,28 @@
 <script>
 import JetDialogModal from '@/Jetstream/DialogModal.vue'
 import axios from 'axios'
+import Toggle from '@vueform/toggle'
+
 export default {
     name: "VocaList",
     components : {
         JetDialogModal,
+        Toggle,
     },
     props : ['voca'],
+    mounted () {
+        // console.log('$$$$$$$$$$$$$$$$$$$$')
+        // console.log(this.voca)
+        if(this.voca.open === '0')
+            this.open_check = false
+        else if(this.voca.open === '1')
+            this.open_check = true
+    },
     data() {
         return {
             openModal : false,
+            value: true,
+            open_check : false
         }
     },
     methods : {
@@ -90,10 +138,33 @@ export default {
                     console.log(err)
             })
         },
+        open_voca() {
+            axios.patch('/api/vocabulary/open/' + this.voca.id)
+                .then(response => {
+                    console.log(response)
+                    this.open_check = true
+                }).catch(err => {
+                    console.log(err)
+            })
+
+        },
+        close_voca() {
+            axios.patch('/api/vocabulary/close/' + this.voca.id)
+                .then(response => {
+                    console.log(response)
+                    this.open_check = false
+                }).catch(err => {
+                    console.log(err)
+            })
+        }
+
     }
 }
 </script>
 
 <style scoped>
-
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+}
 </style>
