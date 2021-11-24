@@ -21025,7 +21025,7 @@ __webpack_require__.r(__webpack_exports__);
     if (test[3] === 'dashboard') {
       document.getElementById('dashboard').className = 'border-b-0 md:border-b-4 border-yellow-300 ' + 'inline-block py-2 px-4 text-yellow-300 font-bold';
       console.log(test[3]);
-    } else if (test[3] === 'online') {
+    } else if (test[3] === 'game') {
       document.getElementById('online').className = 'border-b-0 md:border-b-4 border-yellow-300 text-yellow-300 ' + 'inline-block hover:text-yellow-300 hover:text-underline py-2 px-4';
     } else if (test[3] === 'vocabulary') {
       document.getElementById('voca_my').className = 'border-b-0 md:border-b-4 border-yellow-300 text-yellow-300 ' + 'inline-block hover:text-yellow-300 hover:text-underline py-2 px-4';
@@ -21086,7 +21086,12 @@ __webpack_require__.r(__webpack_exports__);
       },
       edit_button: [],
       word_error: [],
-      first_page: false
+      first_page: false,
+      start_game: false,
+      game: {
+        title: '',
+        message: ''
+      }
     };
   },
   mounted: function mounted() {
@@ -21278,7 +21283,40 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    game_start_button: function game_start_button() {
+      this.start_game = true;
+    },
+    game_start_button_start: function game_start_button_start() {
+      if (this.game.title === '') {
+        this.game.message = '꼭 필요해요!';
+        return;
+      }
+
+      location.href = "/game/3";
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Layouts/Layout.vue */ "./resources/js/Pages/Layouts/Layout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "GameRoom",
+  components: {
+    Layout: _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -26219,26 +26257,24 @@ var _hoisted_20 = {
   key: 0,
   "class": "flex items-center font-medium tracking-wide text-red-500 text-xl mt-1 ml-1"
 };
-
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_21 = {
   "class": "w-full flex justify-center items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "data-modal-toggle": "example2",
-  "data-modal-action": "open",
-  "class": "bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-8"
-}, " 게임 시작 ")], -1
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-black"
+}, "삭제", -1
 /* HOISTED */
 );
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 삭제 ");
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "relative w-full mb-3 mt-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
-  "class": "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 font-bold",
+  "class": "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 font-bold text-black",
   placeholder: "단어장 제목",
-  value: "삭제하시겠습니까?"
+  value: "삭제하시겠습니까?",
+  readonly: ""
 })], -1
 /* HOISTED */
 );
@@ -26247,7 +26283,32 @@ var _hoisted_24 = {
   "class": "justify-center"
 };
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-black"
+}, "게임 생성", -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  "class": "relative w-full mb-3 mt-8"
+};
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block uppercase text-blueGray-600 text-black text-xs font-bold mb-2",
+  "for": "full-name"
+}, "게임 제목", -1
+/* HOISTED */
+);
+
+var _hoisted_28 = {
+  key: 0,
+  "class": "flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+};
+var _hoisted_29 = {
+  "class": "justify-center"
+};
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   style: {
     "height": "100px"
   }
@@ -26301,7 +26362,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 0,
       type: "text",
       placeholder: "한자",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       readonly: "",
       value: word.kannzi
     }, null, 8
@@ -26310,7 +26371,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 1,
       type: "text",
       placeholder: "히라가나",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       readonly: "",
       value: word.hiragana
     }, null, 8
@@ -26319,7 +26380,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 2,
       type: "text",
       placeholder: "한글",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       readonly: "",
       value: word.korean
     }, null, 8
@@ -26328,7 +26389,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 3,
       type: "text",
       placeholder: "한자",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       "onUpdate:modelValue": function onUpdateModelValue($event) {
         return word.kannzi = $event;
       }
@@ -26338,7 +26399,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 4,
       type: "text",
       placeholder: "히라가나",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       "onUpdate:modelValue": function onUpdateModelValue($event) {
         return word.hiragana = $event;
       }
@@ -26348,7 +26409,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 5,
       type: "text",
       placeholder: "한글",
-      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+      "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
       "onUpdate:modelValue": function onUpdateModelValue($event) {
         return word.korean = $event;
       }
@@ -26383,7 +26444,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "한자",
-    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.word.kannzi = $event;
     })
@@ -26392,7 +26453,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.word.kannzi]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "히라가나",
-    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.word.hiragana = $event;
     })
@@ -26401,7 +26462,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.word.hiragana]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "한글",
-    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 m-1",
+    "class": "text-center mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black focus:border-indigo-600 m-1",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.word.korean = $event;
     })
@@ -26414,9 +26475,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, "저장")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [$data.error.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error.message), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_dialog_modal, {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "data-modal-toggle": "example2",
+    "data-modal-action": "open",
+    "class": "bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-8",
+    onClick: _cache[8] || (_cache[8] = function () {
+      return $options.game_start_button && $options.game_start_button.apply($options, arguments);
+    })
+  }, " 게임 시작 ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_dialog_modal, {
     show: $data.openModal,
-    onClose: _cache[10] || (_cache[10] = function ($event) {
+    onClose: _cache[11] || (_cache[11] = function ($event) {
       return $data.openModal = false;
     })
   }, {
@@ -26427,13 +26495,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "bg-yellow-600 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-left mr-5",
         type: "button",
-        onClick: _cache[8] || (_cache[8] = function () {
+        onClick: _cache[9] || (_cache[9] = function () {
           return $options.close_modal && $options.close_modal.apply($options, arguments);
         })
       }, " 아뇨 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "bg-red-400 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-right",
         type: "button",
-        onClick: _cache[9] || (_cache[9] = function () {
+        onClick: _cache[10] || (_cache[10] = function () {
           return $options.voca_delete && $options.voca_delete.apply($options, arguments);
         })
       }, " 예ㅖ ")])];
@@ -26443,7 +26511,67 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["show"])]), _hoisted_25], 64
+  , ["show"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_dialog_modal, {
+    show: $data.start_game,
+    onClose: _cache[14] || (_cache[14] = function ($event) {
+      return $data.start_game = false;
+    })
+  }, {
+    title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_25];
+    }),
+    content: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, $data.game.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.game.message), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        type: "text",
+        "class": "bg-gray-300 border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none text-black focus:ring w-full ease-linear transition-all duration-150",
+        placeholder: "게임 제목",
+        "onUpdate:modelValue": _cache[12] || (_cache[12] = function ($event) {
+          return $data.game.title = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.game.title]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        "class": "bg-yellow-600 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-left mr-5",
+        type: "button",
+        onClick: _cache[13] || (_cache[13] = function () {
+          return $options.game_start_button_start && $options.game_start_button_start.apply($options, arguments);
+        })
+      }, " 시작 ")])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["show"])]), _hoisted_30], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div style=\"height:150px;\"></div><div class=\"font-sans bg-grey-lighter flex flex-col min-h-screen w-full\"><div class=\"flex-grow container mx-auto sm:px-4 pt-6 pb-8\"><div class=\"bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6 p-3\"><div id=\"moka-w1wgf\" class=\"items-center justify-center w-full p-8 flex flex-col\"><div id=\"moka-ix3cs\" class=\"bg-gray-400 items-center justify-center md:w-1/2 w-full shadow-md p-5 h-auto rounded-lg blur-3 bg-opacity-50 flex flex-col col-span-12\"><h4 class=\"w-48 border-t-4 border-solid border-red-500 h-20\" id=\"moka-uuij0\"></h4><h4 class=\"text-black text-2xl\" id=\"moka-8q3tt\" style=\"font-family:Abel;\">사람들 기다리는 중</h4><h2 class=\"text-black text-5xl text-center mt-2 mb-20\" id=\"moka-cqg7a\" style=\"font-family:&quot;Archivo Black&quot;;\">함께 풀어요!</h2><button value=\"button\" class=\"hover:text-gray-300 bg-yellow-800 text-white hover:bg-black w-56 p-4 text-2xl font-bold\" id=\"moka-8pwrq\" style=\"font-family:Barlow;\">시작</button></div></div><div class=\"flex flex-col items-center justify-center\"><div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div></div></div></div></div></div>", 2);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout), _hoisted_1], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -54273,6 +54401,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Main/GameRoom.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Main/GameRoom.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=template&id=ed83e16c */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c");
+/* harmony import */ var _GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=script&lang=js */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js");
+/* harmony import */ var _Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Main/GameRoom.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Main/Main.vue":
 /*!******************************************!*\
   !*** ./resources/js/Pages/Main/Main.vue ***!
@@ -55312,6 +55468,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Main/Main.vue?vue&type=script&lang=js":
 /*!******************************************************************!*\
   !*** ./resources/js/Pages/Main/Main.vue?vue&type=script&lang=js ***!
@@ -56272,6 +56444,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=template&id=ed83e16c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Main/Main.vue?vue&type=template&id=1ef07cd4":
 /*!************************************************************************!*\
   !*** ./resources/js/Pages/Main/Main.vue?vue&type=template&id=1ef07cd4 ***!
@@ -56761,6 +56949,7 @@ var map = {
 	"./Error/Error_BadConnection.vue": "./resources/js/Pages/Error/Error_BadConnection.vue",
 	"./Layouts/Layout.vue": "./resources/js/Pages/Layouts/Layout.vue",
 	"./Main/CreateWords.vue": "./resources/js/Pages/Main/CreateWords.vue",
+	"./Main/GameRoom.vue": "./resources/js/Pages/Main/GameRoom.vue",
 	"./Main/Main.vue": "./resources/js/Pages/Main/Main.vue",
 	"./Main/MyVoca.vue": "./resources/js/Pages/Main/MyVoca.vue",
 	"./Main/OtherVoca.vue": "./resources/js/Pages/Main/OtherVoca.vue",

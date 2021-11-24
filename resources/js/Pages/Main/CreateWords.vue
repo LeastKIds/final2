@@ -42,23 +42,23 @@
         </div>
         <div style="text-align:center;" v-for="(word,index) in words_x" :key="word.id">
             <input type="text" placeholder="한자" class="text-center mb-2 bg-gray-100 p-2
-            rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
             focus:border-indigo-600 m-1" readonly :value="word.kannzi" v-if="edit_button[index] === 1"/>
             <input type="text" placeholder="히라가나" class="text-center mb-2 bg-gray-100
-            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
             focus:border-indigo-600 m-1" readonly :value="word.hiragana" v-if="edit_button[index] === 1"/>
             <input type="text" placeholder="한글" class="text-center mb-2 bg-gray-100
-             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
               focus:border-indigo-600 m-1" readonly :value="word.korean" v-if="edit_button[index] === 1"/>
 
             <input type="text" placeholder="한자" class="text-center mb-2 bg-gray-100 p-2
-            rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none  text-black
             focus:border-indigo-600 m-1" v-model="word.kannzi" v-if="edit_button[index] === 0"/>
             <input type="text" placeholder="히라가나" class="text-center mb-2 bg-gray-100
-            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
             focus:border-indigo-600 m-1" v-model="word.hiragana" v-if="edit_button[index] === 0"/>
             <input type="text" placeholder="한글" class="text-center mb-2 bg-gray-100
-             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
               focus:border-indigo-600 m-1" v-model="word.korean" v-if="edit_button[index] === 0"/>
             <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-yellow-500
             text-yellow-500 text-lg rounded-lg hover:bg-yellow-500 hover:text-gray-100
@@ -75,13 +75,13 @@
         </div>
         <div style="text-align:center;">
             <input type="text" placeholder="한자" class="text-center mb-2 bg-gray-100
-            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
             focus:border-indigo-600 m-1" v-model="word.kannzi"/>
             <input type="text" placeholder="히라가나" class="text-center mb-2 bg-gray-100
-             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+             p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
              focus:border-indigo-600 m-1" v-model="word.hiragana" />
             <input type="text" placeholder="한글" class="text-center mb-2 bg-gray-100
-            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none
+            p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none text-black
             focus:border-indigo-600 m-1" v-model="word.korean"/>
             <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100
             focus:border-4 focus:border-green-300 m-1" @click="create_word">저장</button>
@@ -97,6 +97,7 @@
                 data-modal-toggle="example2"
                 data-modal-action="open"
                 class="bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-8"
+                @click="game_start_button"
             >
                 게임 시작
             </button>
@@ -111,15 +112,15 @@
 
         <jet-dialog-modal :show="openModal" @close="openModal = false">
             <template #title>
-                삭제
+                <p class="text-black">삭제</p>
             </template>
 
             <template #content>
                 <div class="relative w-full mb-3 mt-8">
                     <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300
                     text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none
-                    focus:ring w-full ease-linear transition-all duration-150 font-bold"
-                           placeholder="단어장 제목" value="삭제하시겠습니까?">
+                    focus:ring w-full ease-linear transition-all duration-150 font-bold text-black"
+                           placeholder="단어장 제목" value="삭제하시겠습니까?" readonly>
                 </div>
                 <div class="justify-center">
                     <button class="bg-yellow-600 text-white
@@ -136,6 +137,42 @@
                 focus:outline-none mr-1 mb-1 ease-linear transition-all
                 duration-150 text-right" type="button" @click="voca_delete">
                         예ㅖ
+                    </button>
+                </div>
+
+
+            </template>
+
+
+        </jet-dialog-modal>
+
+
+
+        <jet-dialog-modal :show="start_game" @close="start_game = false">
+            <template #title>
+                <p class="text-black">게임 생성</p>
+            </template>
+
+            <template #content>
+                <div class="relative w-full mb-3 mt-8">
+                    <label class="block uppercase text-blueGray-600 text-black
+                    text-xs font-bold mb-2" for="full-name">게임 제목</label>
+                    <span class="flex items-center font-medium tracking-wide text-red-500 text-xs
+                mt-1 ml-1" v-if="game.message">{{game.message}}</span>
+                    <input type="text" class="bg-gray-300 border-0 px-3 py-3 placeholder-blueGray-300
+                    text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none text-black
+                    focus:ring w-full ease-linear transition-all duration-150"
+                           placeholder="게임 제목" v-model="game.title">
+
+                </div>
+
+                <div class="justify-center">
+                    <button class="bg-yellow-600 text-white
+                active:bg-blueGray-600 text-sm font-bold uppercase
+                px-6 py-3 rounded shadow hover:shadow-lg outline-none
+                focus:outline-none mr-1 mb-1 ease-linear transition-all
+                duration-150 text-left mr-5" type="button" @click="game_start_button_start">
+                        시작
                     </button>
                 </div>
 
@@ -183,6 +220,11 @@ export default {
             edit_button : [],
             word_error : [],
             first_page : false,
+            start_game : false,
+            game : {
+                title : '',
+                message : '',
+            }
         }
     },
     mounted () {
@@ -376,6 +418,17 @@ export default {
                 }).catch(err => {
                     console.log(err)
             })
+        },
+        game_start_button() {
+            this.start_game = true
+        },
+        game_start_button_start() {
+            if(this.game.title ===''){
+                this.game.message='꼭 필요해요!'
+                return
+            }
+
+            location.href="/game/3";
         }
 
     }

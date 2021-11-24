@@ -96,7 +96,7 @@ export default {
                 .className = 'border-b-0 md:border-b-4 border-yellow-300 ' +
                 'inline-block py-2 px-4 text-yellow-300 font-bold';
             console.log(test[3])
-        } else if (test[3] === 'online') {
+        } else if (test[3] === 'game') {
             document.getElementById('online')
                 .className ='border-b-0 md:border-b-4 border-yellow-300 text-yellow-300 ' +
                 'inline-block hover:text-yellow-300 hover:text-underline py-2 px-4'

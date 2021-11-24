@@ -51,4 +51,12 @@ class MainPageController extends Controller
         else
             return Inertia::render('Main/OtherVocaView', ['voca' => $voca, 'words' => $words]);
     }
+
+    public function index_game($room_id) {
+
+
+
+
+        return Inertia::render('Main/GameRoom');
+    }
 }

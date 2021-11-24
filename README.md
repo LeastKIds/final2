@@ -17,4 +17,6 @@ https://tailwindcomponents.com/component/search-input-4
 
 https://tailwindcomponents.com/component/simple-pagination
 
+온라인 캐릭터
 
+https://tailwindcomponents.com/component/profile

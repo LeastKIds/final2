@@ -49,6 +49,13 @@ Route::middleware(['auth:sanctum', 'verified'])->
         Route::get('/words/{voca_id}', [MainPageController::class, 'index_other_words']);
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->
+prefix('game') -> group(function () {
+    Route::get('/{room_id}', [MainPageController::class, 'index_game']);
+
+});
+
+
 
 // api 서버
 Route::middleware(['auth:sanctum', 'verified'])->
