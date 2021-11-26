@@ -21317,6 +21317,25 @@ __webpack_require__.r(__webpack_exports__);
   name: "GameRoom",
   components: {
     Layout: _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      test: [1, 2, 3, 4],
+      chat: false
+    };
+  },
+  mounted: function mounted() {
+    var val = this;
+    setTimeout(function () {
+      val.chatClick();
+    }, 3000);
+    console.log('s');
+  },
+  methods: {
+    chatClick: function chatClick() {
+      this.chat = true;
+      console.log('t');
+    }
   }
 });
 
@@ -26552,10 +26571,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c":
-/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26566,12 +26585,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div style=\"height:150px;\"></div><div class=\"font-sans bg-grey-lighter flex flex-col min-h-screen w-full\"><div class=\"flex-grow container mx-auto sm:px-4 pt-6 pb-8\"><div class=\"bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6 p-3\"><div id=\"moka-w1wgf\" class=\"items-center justify-center w-full p-8 flex flex-col\"><div id=\"moka-ix3cs\" class=\"bg-gray-400 items-center justify-center md:w-1/2 w-full shadow-md p-5 h-auto rounded-lg blur-3 bg-opacity-50 flex flex-col col-span-12\"><h4 class=\"w-48 border-t-4 border-solid border-red-500 h-20\" id=\"moka-uuij0\"></h4><h4 class=\"text-black text-2xl\" id=\"moka-8q3tt\" style=\"font-family:Abel;\">사람들 기다리는 중</h4><h2 class=\"text-black text-5xl text-center mt-2 mb-20\" id=\"moka-cqg7a\" style=\"font-family:&quot;Archivo Black&quot;;\">함께 풀어요!</h2><button value=\"button\" class=\"hover:text-gray-300 bg-yellow-800 text-white hover:bg-black w-56 p-4 text-2xl font-bold\" id=\"moka-8pwrq\" style=\"font-family:Barlow;\">시작</button></div></div><div class=\"flex flex-col items-center justify-center\"><div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div><div class=\"card text-center shadow-2xl w-1/4 bg-gray-500 inline-flex\"><figure class=\"px-10 pt-10\"><img class=\"object-center object-cover rounded-full h-20 w-20\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\"></figure><div class=\"card-body\"><h2 class=\"card-title\">shadow, center, padding</h2><p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p><div class=\"justify-center card-actions\"><button class=\"btn btn-outline btn-accent\">More info</button></div></div></div></div></div></div></div></div>", 2);
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-ed83e16c"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "150px"
+    }
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_2 = {
+  "class": "font-sans bg-grey-lighter flex flex-col min-h-screen w-full"
+};
+var _hoisted_3 = {
+  "class": "flex-grow container mx-auto sm:px-4 pt-6 pb-8"
+};
+var _hoisted_4 = {
+  "class": "bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6 p-3"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"moka-w1wgf\" class=\"items-center justify-center w-full p-8 flex flex-col\" data-v-ed83e16c><div id=\"moka-ix3cs\" class=\"bg-gray-400 items-center justify-center md:w-1/2 w-full shadow-md p-5 h-auto rounded-lg blur-3 bg-opacity-50 flex flex-col col-span-12\" data-v-ed83e16c><h4 class=\"w-48 border-t-4 border-solid border-red-500 h-10\" id=\"moka-uuij0\" data-v-ed83e16c></h4><h4 class=\"text-black text-2xl\" id=\"moka-8q3tt\" style=\"font-family:Abel;\" data-v-ed83e16c>사람들 기다리는 중...</h4><h2 class=\"text-black text-5xl text-center mt-2 mb-10\" id=\"moka-cqg7a\" style=\"font-family:&quot;Archivo Black&quot;;\" data-v-ed83e16c>함께 풀어요!</h2><button value=\"button\" class=\"hover:text-gray-300 bg-yellow-800 text-white hover:bg-black w-56 p-4 text-2xl font-bold\" id=\"moka-8pwrq\" style=\"font-family:Barlow;\" data-v-ed83e16c>시작</button></div></div>", 1);
+
+var _hoisted_6 = {
+  "class": "flex flex-col items-center justify-center"
+};
+var _hoisted_7 = {
+  "class": "grid grid-cols-4 gap-4"
+};
+var _hoisted_8 = {
+  key: 0,
+  "class": "bubble text-white w-40"
+};
+
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+    "class": "m-1 font-black"
+  }, "welcomewelc", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = [_hoisted_9];
+var _hoisted_11 = {
+  key: 1,
+  "class": "bubble2"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"card text-center shadow-2xl bg-gray-500 inline-flex m-1\" data-v-ed83e16c><div data-v-ed83e16c><figure class=\"px-10 pt-6 z-0\" data-v-ed83e16c><img class=\"object-center object-cover rounded-full h-20 w-20 z-\" src=\"https://picsum.photos/id/1005/400/250\" alt=\"photo\" data-v-ed83e16c></figure><div class=\"card-body z-0\" data-v-ed83e16c><h2 class=\"card-title\" data-v-ed83e16c>이름</h2><p data-v-ed83e16c>이메일</p><div class=\"justify-center card-actions\" data-v-ed83e16c><button class=\"btn btn-outline btn-accent\" data-v-ed83e16c>More info</button></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout), _hoisted_1], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.test, function (i, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "items-center justify-center flex flex-col inline-flex",
+      key: index
+    }, [$data.chat ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.chat === false ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_12]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -28939,6 +29016,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\ninput:checked ~ .dot[data-v-6d0b58d9] {\n    transform: translateX(100%);\n    background-color: #48bb78;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bubble[data-v-ed83e16c]{\n    /*width: 230px;*/\n    /*height: 50px;*/\n    text-align: center;\n    background: #808080;\n    padding: 5px;\n    margin: 35px auto;\n    position: relative;\n    border-radius:10px;\n}\n.bubble[data-v-ed83e16c]:before\n{\n    content: \"\";\n    display: block;\n    width: 0;\n    border-width:15px 15px 0px 15px ;\n    border-color:#808080 transparent;\n    border-style:solid;\n    position: absolute;\n    bottom:-15px;\n    right: 50%;\n    transform: translateX(50%)\n}\n.bubble2[data-v-ed83e16c]{width: 230px;\n    height: 50px;\n    text-align: center;\n    /*background: #808080;*/\n    padding: 5px;\n    margin: 35px auto;\n    position: relative;\n    border-radius:10px;\n}\n.bubble2[data-v-ed83e16c]:before\n{\n    /*content: \"\";*/\n    display: block;\n    width: 0;\n    border-width:15px 15px 0px 15px ;\n    /*border-color:#808080 transparent;*/\n    border-style:solid;\n    position: absolute;\n    bottom:-15px;\n    right: 50%;\n    transform: translateX(50%)\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52761,6 +52862,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_style_index_0_id_ed83e16c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_style_index_0_id_ed83e16c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_style_index_0_id_ed83e16c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Welcome.vue?vue&type=style&index=0&id=317d1a6e&scoped=true&lang=css":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Welcome.vue?vue&type=style&index=0&id=317d1a6e&scoped=true&lang=css ***!
@@ -54412,15 +54543,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=template&id=ed83e16c */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c");
+/* harmony import */ var _GameRoom_vue_vue_type_template_id_ed83e16c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true");
 /* harmony import */ var _GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=script&lang=js */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _GameRoom_vue_vue_type_style_index_0_id_ed83e16c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css */ "./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css");
+/* harmony import */ var _Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Main/GameRoom.vue"]])
+
+
+const __exports__ = /*#__PURE__*/(0,_Users_gimjinhong_github_laravel_final2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_GameRoom_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GameRoom_vue_vue_type_template_id_ed83e16c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-ed83e16c"],['__file',"resources/js/Pages/Main/GameRoom.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56444,18 +56578,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c":
-/*!****************************************************************************!*\
-  !*** ./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c ***!
-  \****************************************************************************/
+/***/ "./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true ***!
+  \****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=template&id=ed83e16c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_template_id_ed83e16c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=template&id=ed83e16c&scoped=true");
 
 
 /***/ }),
@@ -56677,6 +56811,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_VocaList_vue_vue_type_style_index_0_id_6d0b58d9_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./VocaList.vue?vue&type=style&index=0&id=6d0b58d9&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Button/VocaList.vue?vue&type=style&index=0&id=6d0b58d9&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GameRoom_vue_vue_type_style_index_0_id_ed83e16c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Main/GameRoom.vue?vue&type=style&index=0&id=ed83e16c&scoped=true&lang=css");
 
 
 /***/ }),
